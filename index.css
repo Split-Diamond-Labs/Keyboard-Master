@@ -57,3 +57,23 @@
     background-color: #ff8080;
     color: black;
 }
+
+.game-container button.success {
+    color: white;
+    background-color: #00bd1f;
+    font-family: "Consolas", Console, "Roboto Mono", "Lucida Console", monospace;
+    border-width: 5px;
+    border-color: #075000;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.game-container button.success:hover {
+    background-color: #008516;
+}
+
+.game-container button.success:active {
+    background-color: #01ff01;
+    color: black;
+}
