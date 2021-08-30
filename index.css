@@ -1,0 +1,39 @@
+.body {
+    font-family: "Consolas", Console, "Roboto Mono", "Lucida Console", monospace;
+    padding: 5%;
+}
+
+.dark {
+    background-color: black;
+    color: white;
+}
+
+.light {
+    background-color: white;
+    color: black;
+}
+
+.game-container {
+    height: 100%;
+    width: 100%;
+}
+
+.game-container button {
+    color: white;
+    background-color: #797979;
+    font-family: "Consolas", Console, "Roboto Mono", "Lucida Console", monospace;
+    border-width: 5px;
+    border-color: #252525;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.game-container button:hover {
+    background-color: #9c9c9c;
+}
+
+.game-container button:active {
+    background-color: #dbdbdb;
+    color: black;
+}
