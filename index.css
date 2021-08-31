@@ -40,10 +40,10 @@
 
 .game-container button.warning {
     color: white;
-    background-color: #ff0000;
+    background-color: #c1554d;
     font-family: "Consolas", Console, "Roboto Mono", "Lucida Console", monospace;
     border-width: 5px;
-    border-color: #880000;
+    border-color: #5d2420;
     padding: 20px;
     text-align: center;
     border-radius: 12px;
