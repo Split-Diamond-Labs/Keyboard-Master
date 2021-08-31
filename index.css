@@ -20,21 +20,21 @@
 
 .game-container button {
     color: white;
-    background-color: #cfd4d9;
+    background-color: #9b9fa2;
     font-family: "Consolas", Console, "Roboto Mono", "Lucida Console", monospace;
     border-width: 5px;
-    border-color: #9b9fa2;
+    border-color: #74777a;
     padding: 20px;
     text-align: center;
     border-radius: 12px;
 }
 
 .game-container button:hover {
-    background-color: #9b9fa2;
+    background-color: #74777a;
 }
 
 .game-container button:active {
-    background-color: #dbdfe3;
+    background-color: #cfd4d9;
     color: black;
 }
 
