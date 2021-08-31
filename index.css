@@ -20,17 +20,17 @@
 
 .game-container button {
     color: white;
-    background-color: #797979;
+    background-color: #cfd4d9;
     font-family: "Consolas", Console, "Roboto Mono", "Lucida Console", monospace;
     border-width: 5px;
-    border-color: #252525;
+    border-color: #9b9fa2;
     padding: 20px;
     text-align: center;
     border-radius: 12px;
 }
 
 .game-container button:hover {
-    background-color: #646464;
+    background-color: #9b9fa2;
 }
 
 .game-container button:active {
@@ -40,17 +40,17 @@
 
 .game-container button.warning {
     color: white;
-    background-color: #c1554d;
+    background-color: #f04f54;
     font-family: "Consolas", Console, "Roboto Mono", "Lucida Console", monospace;
     border-width: 5px;
-    border-color: #5d2420;
+    border-color: #b33b3f;
     padding: 20px;
     text-align: center;
     border-radius: 12px;
 }
 
 .game-container button.warning:hover {
-    background-color: #c20000;
+    background-color: #b33b3f;
 }
 
 .game-container button.warning:active {
@@ -60,17 +60,17 @@
 
 .game-container button.success {
     color: white;
-    background-color: #00bd1f;
+    background-color: #00e06c;
     font-family: "Consolas", Console, "Roboto Mono", "Lucida Console", monospace;
     border-width: 5px;
-    border-color: #075000;
+    border-color: #00a851;
     padding: 20px;
     text-align: center;
     border-radius: 12px;
 }
 
 .game-container button.success:hover {
-    background-color: #008516;
+    background-color: #00a851;
 }
 
 .game-container button.success:active {
