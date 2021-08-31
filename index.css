@@ -34,7 +34,7 @@
 }
 
 .game-container button:active {
-    background-color: #dbdbdb;
+    background-color: #dbdfe3;
     color: black;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .game-container button.warning:active {
-    background-color: #ff8080;
+    background-color: #f47b7f;
     color: black;
 }
 
@@ -74,6 +74,6 @@
 }
 
 .game-container button.success:active {
-    background-color: #01ff01;
+    background-color: #40e891;
     color: black;
 }
