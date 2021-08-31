@@ -1,6 +1,5 @@
 .body {
     font-family: "Consolas", Console, "Roboto Mono", "Lucida Console", monospace;
-    padding: 5%;
 }
 
 .dark {
@@ -8,14 +7,11 @@
     color: white;
 }
 
-.light {
-    background-color: white;
-    color: black;
-}
-
 .game-container {
+    background-color: darkgrey;
     height: 90%;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .game-container button {
@@ -27,6 +23,7 @@
     padding: 20px;
     text-align: center;
     border-radius: 12px;
+    font-size: 125%;
 }
 
 .game-container button:hover {
