@@ -12,9 +12,37 @@
             <button>Default Button</button>
             <button class="warning">Warning</button>
             <button class="success">Success</button>
+            <p>Mode: <span id="mode-display">Choose!</span></p>
+            <p>Keyboard: <span id="keyboard-display">Choose!</span></p>
+            <div id="startScreen" class="modal" style="display: block;">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <h1>Gamemode</h1>
+                    <button id="mode">Pointrun</button>
+                    <br>
+                    <br>
+                    <br>
+                    <hr>
+                    <br>
+                    <h1>Keyboard</h1>
+                    <button id="keyboard-type">Normal (QWERTY)</button>
+                    <br>
+                    <br>
+                    <br>
+                    <hr>
+                    <br>
+                    <button class="success" id="start" style="font-size: 200%;">Play!</button>
+                </div>
+
+            </div>
         </div>
         <div style="height: 5%; font-size: 200%; text-align: center;">By Split Diamond Labs</div>
+
     </div>
+    <script src="scripts/eventHandlers.js"></script>
+    <script src="scripts/variables.js"></script>
+    <script src="scripts/gameLogic.js"></script>
 </body>
 
 </html>
