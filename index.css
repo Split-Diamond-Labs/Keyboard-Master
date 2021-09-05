@@ -103,3 +103,8 @@
 .modal-content button {
     background-color: #000000;
 }
+
+#keyboard-preview button {
+    border-width: 50%;
+    padding: 3px;
+}
