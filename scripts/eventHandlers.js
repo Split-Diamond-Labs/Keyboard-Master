@@ -19,7 +19,7 @@ function keyboardClick() {
     document.getElementById("keyboard-type").innerText = keyboardNames[keyboard];
     switch (keyboard) {
         case 0: // Normal Keyboard 
-            document.getElementById("keyboard-preview").innerHTML = `<h2>Preview:</h2>
+            document.getElementById("keyboard-preview").innerHTML = `<h1>Preview:</h1>
             <div>
                 <button>Q</button>
                 <button>W</button>
@@ -54,11 +54,11 @@ function keyboardClick() {
                 <button>B</button>
                 <button>N</button>
                 <button>M</button>
-                <span style="color: #525252;">dddd</span>
+                <span style="color: #525252;">ddddd</span>
             </div>`;
             break;
         case 1: // Reversed Keyboard 
-            document.getElementById("keyboard-preview").innerHTML = `<h2>Preview:</h2>
+            document.getElementById("keyboard-preview").innerHTML = `<h1>Preview:</h1>
         <div>
             <button>P</button>
             <button>O</button>
@@ -93,12 +93,12 @@ function keyboardClick() {
             <button>C</button>
             <button>X</button>
             <button>Z</button>
-            <span style="color: #525252;">dddd</span>
+            <span style="color: #525252;">ddddd</span>
         </div>`;
             break;
 
         case 2: // Piano Keyboard 
-            document.getElementById("keyboard-preview").innerHTML = `<h2>Preview:</h2>
+            document.getElementById("keyboard-preview").innerHTML = `<h1>Preview:</h1>
         <div>
             <button>A</button>
             <button>B</button>
@@ -133,7 +133,7 @@ function keyboardClick() {
             <button>X</button>
             <button>Y</button>
             <button>Z</button>
-            <span style="color: #525252;">dddd</span>
+            <span style="color: #525252;">ddddd</span>
         </div>`;
             break;
     }

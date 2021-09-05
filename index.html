@@ -10,28 +10,42 @@
     <div class="body">
         <div style="height: 5%; font-size: 200%; text-align: center;">Keyboard Master</div>
         <div class="dark game-container">
-            <button>Default Button</button>
-            <button class="warning">Warning</button>
-            <button class="success">Success</button>
-            <p>Mode: <span id="mode-display">Choose!</span></p>
-            <p>Keyboard: <span id="keyboard-display">Choose!</span></p>
+            <h1 style="margin: 0% auto; text-align: center;">
+                Mode:
+                <span id="mode-display">[Placeholder Text]</span>
+                <span style="color: #4d4d4d; font-size: 30%;">[Placeholder Text]</span> Keyboard:
+                <span id="keyboard-display">[Placeholder Text]</span>
+            </h1>
+            <table style="width: 100%; font-size: 150%;">
+                <tr>
+                    <td style="width: 50%;">
+                        <p id="score" style="padding-left: 10%;">[Placeholder Text]</p>
+                    </td>
+                    <td style="width: 50%;">
+                        <p id="threshold" style="text-align: right; padding-right: 10%">[Placeholder Text]</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%; text-align: center; font-size: 400%;">Word</td>
+                </tr>
+            </table>
             <div id="startScreen" class="modal" style="display: block;">
-
-                <!-- Modal content -->
                 <div class="modal-content">
-                    <h1>Gamemode</h1>
+                    <h1 style="font-size: 400%;">Keyboard Master</h1>
+                    <h1 style="font-size: 300%;">By Split Diamond Labs</h1>
+                    <hr>
+                    <h1 style="font-size: 250%;">Gamemode</h1>
                     <button id="mode">Pointrun</button>
                     <br>
                     <br>
                     <br>
-                    <hr>
                     <br>
-                    <h1>Keyboard</h1>
+                    <h1 style="font-size: 250%;">Keyboard</h1>
                     <button id="keyboard-type">Normal</button>
                     <br>
                     <br>
                     <div id="keyboard-preview">
-                        <h2>Preview:</h2>
+                        <h1>Preview:</h1>
                         <div>
                             <button>Q</button>
                             <button>W</button>
@@ -66,15 +80,19 @@
                             <button>B</button>
                             <button>N</button>
                             <button>M</button>
-                            <span style="color: #525252;">dddd</span>
+                            <span style="color: #525252;">ddddd</span>
                         </div>
                     </div>
                     <br>
                     <br>
                     <br>
-                    <hr>
                     <br>
                     <button class="success" id="start" style="font-size: 200%;">Play!</button>
+                    <br>
+                    <br>
+                    <hr>
+                    <br>
+                    <p style="font-size: 200%;">Join our <a href="https://discord.gg/">Discord Server</a> or support us on <a href="https://www.patreon.com/SDLabs">Patreon</a>!</p>
                 </div>
 
             </div>
