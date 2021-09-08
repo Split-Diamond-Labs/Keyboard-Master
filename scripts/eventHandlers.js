@@ -4,6 +4,21 @@
  * This file is where all the event handlers are attached to the events 
  */
 
+function arrayEquality(arr1, arr2) {
+
+    // Check if the arrays are the same length
+    if (arr1.length !== arr2.length) return false;
+
+    // Check if all items exist and are in the same order
+    for (var i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) return false;
+    }
+
+    // Otherwise, return true
+    return true;
+
+};
+
 function modeClick() {
     mode++; // Toggle mode 
     mode %= modes.length; // If the mode index overflows, this line will automatically bring it back to 0
@@ -144,7 +159,7 @@ function keyboardConvert(char) {
     } else if (("asdfghjkl").includes(char)) {
         return keyboards[keyboard][1]['asdfghjkl'.indexOf(char)];
     } else if (("zxcvbnm").includes(char)) {
-        return keyboards[keyboard][1]['zxcvbnm'.indexOf(char)];
+        return keyboards[keyboard][2]['zxcvbnm'.indexOf(char)];
     }
 }
 
@@ -155,11 +170,25 @@ function onType(e) {
     } else if (e.key === "Backspace") {
         typedWord.pop();
     }
+    if (arrayEquality(typedWord, word)) {
+        typedWord = [];
+        points += wordLength * 10;
+        switch (mode) {
+            case 0:
+                document.getElementById("scoreAmount").innerText = String(points);
+                break;
+            case 1, 2:
+                document.getElementById("thresholdAmount").innerText = String(points);
+                break;
+        }
+        generateWord();
+    }
     (function() {
         let typedWordString = "";
         typedWord.forEach(function(value, index, array) { typedWordString += value; });
         document.getElementById("typed-word").innerText = typedWordString;
     })(); // To limit variable scope 
+
 }
 
 document.getElementById("mode").addEventListener("click", modeClick); // Attach 

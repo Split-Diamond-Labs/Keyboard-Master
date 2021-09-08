@@ -23,6 +23,8 @@ function startGame(mode, keyboard) {
             timerun();
             break;
     }
+
+    generateWord();
     // Will replace this with actual logic once I figure out how it works on paper 
 }
 
@@ -31,6 +33,12 @@ function pointrun() {
     let timerInterval = setInterval(function() {
         timer--;
         document.getElementById("thresholdAmount").innerText = formatTime(timer);
+        if (timer == 0) {
+            clearInterval(timerInterval);
+            document.getElementById("word").innerText = "Time's up! Reload to replay!";
+            document.getElementById("typed-word").innerText = `Score: ${points}`;
+            playing = false;
+        }
     }, 100);
 
 }
@@ -60,4 +68,20 @@ function formatTime(num) {
         secs = String(Math.floor(num % 600 / 10));
     }
     return `${Math.floor(timer/600)}:${secs}.${tenths}`;
+}
+
+function generateWord() {
+    wordLength = 5 + Math.floor(Math.random() * 6);
+    word = [];
+    var characters = 'abcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < wordLength; i++) {
+        word.push(characters.charAt(Math.floor(Math.random() *
+            charactersLength)));
+    }
+    (function() {
+        let wordString = "";
+        word.forEach(function(value, index, array) { wordString += value; });
+        document.getElementById("word").innerText = wordString;
+    })();
 }

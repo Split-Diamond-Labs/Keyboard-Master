@@ -30,6 +30,7 @@ const keyboardNames = ["Normal", "Reversed", "Piano"]; // Keyboard Names
 
 let word = [];
 let typedWord = [];
+let wordLength = 0;
 
 let playing = false;
 
