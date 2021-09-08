@@ -27,3 +27,12 @@ const keyboards = [
     ]
 ];
 const keyboardNames = ["Normal", "Reversed", "Piano"]; // Keyboard Names
+
+let word = [];
+let typedWord = [];
+
+let playing = false;
+
+let timer = 0;
+let points = 0;
+let pointThresh = 0;

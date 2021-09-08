@@ -83,7 +83,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #0000006b;
     cursor: default;
 }
 
@@ -120,6 +119,24 @@ a:hover {
     cursor: text;
 }
 
-veryimportantstuff {
-    text-decoration: wavy;
+.blinking {
+    animation: blinkingText 1.2s infinite;
+}
+
+@keyframes blinkingText {
+    0% {
+        color: #80ff00;
+    }
+    49% {
+        color: #80ff00;
+    }
+    60% {
+        color: transparent;
+    }
+    99% {
+        color: transparent;
+    }
+    100% {
+        color: #80ff00;
+    }
 }

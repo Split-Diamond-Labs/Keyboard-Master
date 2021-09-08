@@ -2,13 +2,14 @@
 // Logic? What's logic? 
 
 function startGame(mode, keyboard) {
+    playing = true;
     document.getElementById("startScreen").style.display = "none"; // Close the start screen 
     document.getElementById("mode-display").innerText = modes[mode];
     document.getElementById("keyboard-display").innerText = keyboardNames[keyboard];
     switch (mode) {
         case 0: // Pointrun 
             document.getElementById("score").innerHTML = "Points: <b><span id='scoreAmount'>0</span></b>";
-            document.getElementById("threshold").innerHTML = "Time left: <b><span id='thresholdAmount'>2:00</span></b>";
+            document.getElementById("threshold").innerHTML = "Time left: <b><span id='thresholdAmount'>2:00.0</span></b>";
             pointrun();
             break;
         case 1: // Speedrun 
@@ -26,13 +27,37 @@ function startGame(mode, keyboard) {
 }
 
 function pointrun() {
+    timer = 1200;
+    let timerInterval = setInterval(function() {
+        timer--;
+        document.getElementById("thresholdAmount").innerText = formatTime(timer);
+    }, 100);
 
 }
 
 function speedrun() {
-
+    timer = 0;
+    let timerInterval = setInterval(function() {
+        timer++;
+        document.getElementById("scoreAmount").innerText = formatTime(timer);
+    }, 100);
 }
 
 function timerun() {
 
+}
+
+function formatTime(num) {
+    let secs, tenths = "";
+    if (num % 10 == 0) {
+        tenths = "0";
+    } else {
+        tenths = String(num % 10);
+    }
+    if (Math.floor(num % 600 / 10) < 10) {
+        secs = "0" + String(num % 600 / 10);
+    } else {
+        secs = String(Math.floor(num % 600 / 10));
+    }
+    return `${Math.floor(timer/600)}:${secs}.${tenths}`;
 }

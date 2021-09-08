@@ -10,7 +10,6 @@ function modeClick() {
     document.getElementById("mode").innerText = modes[mode]; // Update the button 
 }
 
-document.getElementById("mode").addEventListener("click", modeClick); // Attach 
 
 function keyboardClick() {
     keyboard++;
@@ -138,6 +137,32 @@ function keyboardClick() {
             break;
     }
 }
-document.getElementById("keyboard-type").addEventListener("click", keyboardClick);
 
+function keyboardConvert(char) {
+    if (("qwertyuiop").includes(char)) {
+        return keyboards[keyboard][0]['qwertyuiop'.indexOf(char)];
+    } else if (("asdfghjkl").includes(char)) {
+        return keyboards[keyboard][1]['asdfghjkl'.indexOf(char)];
+    } else if (("zxcvbnm").includes(char)) {
+        return keyboards[keyboard][1]['zxcvbnm'.indexOf(char)];
+    }
+}
+
+function onType(e) {
+    if (!playing) return;
+    if (("abcdefghijklmnopqrstuvwxyz").includes(e.key.toLowerCase())) {
+        typedWord.push(keyboardConvert(e.key.toLowerCase()));
+    } else if (e.key === "Backspace") {
+        typedWord.pop();
+    }
+    (function() {
+        let typedWordString = "";
+        typedWord.forEach(function(value, index, array) { typedWordString += value; });
+        document.getElementById("typed-word").innerText = typedWordString;
+    })(); // To limit variable scope 
+}
+
+document.getElementById("mode").addEventListener("click", modeClick); // Attach 
+document.getElementById("keyboard-type").addEventListener("click", keyboardClick);
 document.getElementById("start").addEventListener("click", function() { startGame(mode, keyboard); /* Defined in gameLogic.js */ });
+document.addEventListener("keydown", onType);
