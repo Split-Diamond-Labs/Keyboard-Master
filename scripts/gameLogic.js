@@ -55,7 +55,7 @@ function formatTime(num) {
         tenths = String(num % 10);
     }
     if (Math.floor(num % 600 / 10) < 10) {
-        secs = "0" + String(num % 600 / 10);
+        secs = "0" + String(Math.floor(num % 600 / 10));
     } else {
         secs = String(Math.floor(num % 600 / 10));
     }
