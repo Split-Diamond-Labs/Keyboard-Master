@@ -164,7 +164,10 @@ function keyboardConvert(char) {
 }
 
 function onType(e) {
-    if (!playing) return;
+    if (!playing) {
+        if (e.key == " ") restart();
+        return;
+    }
     if (("abcdefghijklmnopqrstuvwxyz").includes(e.key.toLowerCase())) {
         typedWord.push(keyboardConvert(e.key.toLowerCase()));
     } else if (e.key === "Backspace") {

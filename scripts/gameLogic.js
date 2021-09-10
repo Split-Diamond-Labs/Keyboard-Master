@@ -35,7 +35,7 @@ function pointrun() {
         document.getElementById("thresholdAmount").innerText = formatTime(timer);
         if (timer == 0) {
             clearInterval(timerInterval);
-            document.getElementById("word").innerText = "Time's up! Reload to replay!";
+            document.getElementById("word").innerText = "Time's up! Press space to replay!";
             document.getElementById("typed-word").innerText = `Score: ${points}`;
             playing = false;
         }
@@ -54,7 +54,7 @@ function speedrun() {
         if (points >= pointThresh) {
             clearInterval(timerInterval);
             clearInterval(foreverCheckingInterval);
-            document.getElementById("word").innerText = "You won! Reload to replay!";
+            document.getElementById("word").innerText = "You won! Press space to replay!";
             document.getElementById("typed-word").innerText = `Time: ${formatTime(timer)}`;
             playing = false;
         }
@@ -85,7 +85,7 @@ function timerun() {
             if (points < pointThresh) {
                 playing = false;
                 clearInterval(timerInterval);
-                document.getElementById("word").innerText = "You lost! Reload to replay!";
+                document.getElementById("word").innerText = "You lost! Press space to replay!";
                 document.getElementById("typed-word").innerText = `Time: ${formatTime(timer)}`;
             }
         }
@@ -122,4 +122,30 @@ function generateWord() {
         word.forEach(function(value, index, array) { wordString += value; });
         document.getElementById("word").innerText = wordString;
     })();
+}
+
+function restart() {
+    score = 0;
+
+    word = [];
+    typedWord = [];
+    wordLength = 0;
+
+    playing = false;
+
+    timer = 0;
+    points = 0;
+    pointThresh = 0;
+
+    document.getElementById("startScreen").style.display = "block";
+    document.getElementById("restart").innerHTML = `<h1 style="margin: 0% auto; text-align: center;">
+    Mode:
+    <span id="mode-display">[Placeholder Text]</span>
+    <span style="color: #4d4d4d; font-size: 30%;">[Placeholder Text]</span> Keyboard:
+    <span id="keyboard-display">[Placeholder Text]</span>
+</h1>
+<p id="score" style="padding-left: 5%; font-size: 150%;">[Placeholder Text]</p>
+<p id="threshold" style="padding-left: 5%; font-size: 150%;">[Placeholder Text]</p>
+<p id="word" style="width: 100%; text-align: center; font-size: 400%;">Word</p>
+<p style="width: 100%; height:fit-content; overflow-wrap: break-word; text-align: center; font-size: 400%; color: #80ff00;"><span id="typed-word"></span><span class="blinking">_</span></p>`;
 }
