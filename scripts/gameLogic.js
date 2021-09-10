@@ -14,12 +14,12 @@ function startGame(mode, keyboard) {
             break;
         case 1: // Speedrun 
             document.getElementById("score").innerHTML = "Time: <b><span id='scoreAmount'>0:00.00</span></b>";
-            document.getElementById("threshold").innerHTML = "<b><span id='thresholdAmount'>0</span>/100</b> Points reached";
+            document.getElementById("threshold").innerHTML = "<b><span id='thresholdAmount'>0</span>/2000</b> Points reached";
             speedrun();
             break;
         case 2: // Timerun 
             document.getElementById("score").innerHTML = "Time: <b><span id='scoreAmount'>0.00</span></b>";
-            document.getElementById("threshold").innerHTML = "Points: <b><span id='thresholdAmount'>0</span>/<span id='point-threshold'>0</span></b> to stay alive";
+            document.getElementById("threshold").innerHTML = "You need <b><span id='thresholdAmount'>0</span>/<span id='point-threshold'>0</span></b> points to stay alive at <span id='timeThresh'>0:30.0</span>";
             timerun();
             break;
     }
@@ -45,18 +45,55 @@ function pointrun() {
 
 function speedrun() {
     timer = 0;
+    pointThresh = 2000;
     let timerInterval = setInterval(function() {
         timer++;
         document.getElementById("scoreAmount").innerText = formatTime(timer);
     }, 100);
+    let foreverCheckingInterval = setInterval(function() {
+        if (points >= pointThresh) {
+            clearInterval(timerInterval);
+            clearInterval(foreverCheckingInterval);
+            document.getElementById("word").innerText = "You won! Reload to replay!";
+            document.getElementById("typed-word").innerText = `Time: ${formatTime(timer)}`;
+            playing = false;
+        }
+    }, 1);
 }
 
 function timerun() {
-
+    // This is going to be hard isn't it 
+    pointThresh = 0;
+    timer = 0;
+    let stage = 1;
+    document.getElementById("point-threshold").innerText = String(pointThresh + 100 * (stage + 1));
+    // If I don't make it through, c-continue m-my work p-p-please 
+    /* 
+    So the format of this is that every some sort of time interval, 
+    the point thresh rises. If, when the point thresh rises, the 
+    player has not gotten his points above or equal to the thresh, 
+    they lose. The goal is to last as long as possible. 
+    */
+    let timerInterval = setInterval(function() {
+        timer++;
+        document.getElementById("scoreAmount").innerText = formatTime(timer);
+        if (timer % 300 == 0) { // Every 30 seconds 
+            stage++;
+            document.getElementById("timeThresh").innerText = formatTime(300 * stage);
+            pointThresh += 100 * stage;
+            document.getElementById("point-threshold").innerText = String(pointThresh + 100 * (stage + 1));
+            if (points < pointThresh) {
+                playing = false;
+                clearInterval(timerInterval);
+                document.getElementById("word").innerText = "You lost! Reload to replay!";
+                document.getElementById("typed-word").innerText = `Time: ${formatTime(timer)}`;
+            }
+        }
+    }, 100);
 }
 
 function formatTime(num) {
-    let secs, tenths = "";
+    let secs, tenths, mins = "";
     if (num % 10 == 0) {
         tenths = "0";
     } else {
@@ -67,16 +104,17 @@ function formatTime(num) {
     } else {
         secs = String(Math.floor(num % 600 / 10));
     }
-    return `${Math.floor(timer/600)}:${secs}.${tenths}`;
+    mins = String((num - num % 600) / 600);
+
+    return `${mins}:${secs}.${tenths}`;
 }
 
 function generateWord() {
     wordLength = 5 + Math.floor(Math.random() * 6);
     word = [];
-    var characters = 'abcdefghijklmnopqrstuvwxyz';
-    var charactersLength = characters.length;
+    var charactersLength = letters.length;
     for (var i = 0; i < wordLength; i++) {
-        word.push(characters.charAt(Math.floor(Math.random() *
+        word.push(letters.charAt(Math.floor(Math.random() *
             charactersLength)));
     }
     (function() {

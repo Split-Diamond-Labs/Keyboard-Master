@@ -177,7 +177,8 @@ function onType(e) {
             case 0:
                 document.getElementById("scoreAmount").innerText = String(points);
                 break;
-            case 1, 2:
+            case 1:
+            case 2:
                 document.getElementById("thresholdAmount").innerText = String(points);
                 break;
         }
