@@ -168,9 +168,11 @@ function onType(e) {
         if (e.key == " ") restart();
         return;
     }
-    if (e.key == "Escape") {
-        restart();
-        return;
+    if (playing) {
+        if (e.key == "Escape") {
+            restart();
+            return;
+        }
     }
     if (("abcdefghijklmnopqrstuvwxyz").includes(e.key.toLowerCase())) {
         typedWord.push(keyboardConvert(e.key.toLowerCase()));

@@ -28,9 +28,11 @@ function startGame(mode, keyboard) {
     // Will replace this with actual logic once I figure out how it works on paper 
 }
 
+let timerInterval;
+
 function pointrun() {
     timer = 1200;
-    let timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         timer--;
         document.getElementById("thresholdAmount").innerText = formatTime(timer);
         if (timer == 0) {
@@ -46,7 +48,7 @@ function pointrun() {
 function speedrun() {
     timer = 0;
     pointThresh = 2000;
-    let timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         timer++;
         document.getElementById("scoreAmount").innerText = formatTime(timer);
     }, 100);
@@ -74,7 +76,7 @@ function timerun() {
     player has not gotten his points above or equal to the thresh, 
     they lose. The goal is to last as long as possible. 
     */
-    let timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         timer++;
         document.getElementById("scoreAmount").innerText = formatTime(timer);
         if (timer % 300 == 0) { // Every 30 seconds 
@@ -128,6 +130,10 @@ function restart() {
     timer = 0;
     points = 0;
     pointThresh = 0;
+
+    if (timerInterval) {
+        clearInterval(timerInterval);
+    }
 
     document.getElementById("startScreen").style.display = "block";
     document.getElementById("restart").innerHTML = `<h1 style="margin: 0% auto; text-align: center;">
