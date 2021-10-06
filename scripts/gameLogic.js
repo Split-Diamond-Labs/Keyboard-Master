@@ -110,18 +110,10 @@ function formatTime(num) {
 }
 
 function generateWord() {
-    wordLength = 5 + Math.floor(Math.random() * 6);
-    word = [];
-    var charactersLength = letters.length;
-    for (var i = 0; i < wordLength; i++) {
-        word.push(letters.charAt(Math.floor(Math.random() *
-            charactersLength)));
-    }
-    (function() {
-        let wordString = "";
-        word.forEach(function(value, index, array) { wordString += value; });
-        document.getElementById("word").innerText = wordString;
-    })();
+    const wordChoice = words.split("\n")[Math.floor(Math.random() * words.split("\n").length)].trim().toLowerCase();
+    wordLength = wordChoice.length;
+    word = wordChoice.split("");
+    document.getElementById("word").innerText = wordChoice;
 }
 
 function restart() {
