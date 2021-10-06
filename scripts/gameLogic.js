@@ -110,7 +110,7 @@ function formatTime(num) {
 }
 
 function generateWord() {
-    const wordChoice = words.split("\n")[Math.floor(Math.random() * words.split("\n").length)].trim().toLowerCase();
+    const wordChoice = words.split("\n")[Math.floor(Math.random() * words.split("\n").length)].trim().toLowerCase().replace(/\W/g, "");
     wordLength = wordChoice.length;
     word = wordChoice.split("");
     document.getElementById("word").innerText = wordChoice;
