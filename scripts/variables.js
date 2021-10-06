@@ -1,7 +1,7 @@
 let score = 0; // The player score 
 
 let mode = 0; // The mode index 
-const modes = ["Pointrun", "Speedrun", "Timerun"]; // Mode names 
+const modes = ["2 Minute Challenge", "2000 Point Challenge", "Stage By Stage Challenge"]; // Mode names 
 
 let keyboard = 0; // Keyboard Index 
 const keyboards = [
