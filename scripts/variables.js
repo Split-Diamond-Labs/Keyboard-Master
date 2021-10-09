@@ -38,7 +38,7 @@ let wordLength = 0; // Length of word, for scoring
 
 let playing = false; // Determines whether certain events fire 
 
-let timerLength = url.searchParams.get("time") ? JSON.parse(url.searchParams.get("time")) : 0; // Check if URL query exists 
+let timerLength = url.searchParams.get("time") ? JSON.parse(url.searchParams.get("time")) : 1200; // Check if URL query exists 
 let skipLength = url.searchParams.get("pointGoal") ? JSON.parse(url.searchParams.get("pointGoal")) : 0;
 let stageLength = url.searchParams.get("stageTime") ? JSON.parse(url.searchParams.get("stageTime")) : 300; // Default variable value 
 
