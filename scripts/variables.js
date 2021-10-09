@@ -1,7 +1,11 @@
+let url = new URL(window.location.href); // URL
+
 let score = 0; // The player score 
 
-let mode = 0; // The mode index 
+let mode = url.searchParams.get("mode") ? JSON.parse(url.searchParams.get("mode")) : 0; // The mode index 
 const modes = ["2 Minute Challenge", "2000 Point Challenge", "Stage By Stage Challenge"]; // Mode names 
+
+document.getElementById("mode").innerText = modes[mode]; // Set the button text, just in case
 
 let keyboard = 0; // Keyboard Index 
 const keyboards = [
@@ -28,12 +32,16 @@ const keyboards = [
 ];
 const keyboardNames = ["Normal", "Reversed", "Piano"]; // Keyboard Names
 
-let word = [];
-let typedWord = [];
-let wordLength = 0;
+let word = []; // Word as a character array 
+let typedWord = []; // Currently typed word 
+let wordLength = 0; // Length of word, for scoring 
 
-let playing = false;
+let playing = false; // Determines whether certain events fire 
 
-let timer = 0;
-let points = 0;
-let pointThresh = 0;
+let timerLength = url.searchParams.get("time") ? JSON.parse(url.searchParams.get("time")) : 0; // Check if URL query exists 
+let skipLength = url.searchParams.get("pointGoal") ? JSON.parse(url.searchParams.get("pointGoal")) : 0;
+let stageLength = url.searchParams.get("stageTime") ? JSON.parse(url.searchParams.get("stageTime")) : 300; // Default variable value 
+
+let timer = timerLength;
+let points = 0; // Points 
+let pointThresh = skipLength; // Threshold

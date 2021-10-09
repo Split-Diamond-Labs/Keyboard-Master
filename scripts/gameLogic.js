@@ -20,18 +20,17 @@ function startGame(mode, keyboard) {
         case 2: // Timerun 
             document.getElementById("score").innerHTML = "Time: <b><span id='scoreAmount'>0.00</span></b>";
             document.getElementById("threshold").innerHTML = "You need <b><span id='thresholdAmount'>0</span>/<span id='point-threshold'>0</span></b> points to stay alive at <span id='timeThresh'>0:30.0</span>";
+            document.getElementById("timeThresh").innerText = formatTime(stageLength);
             timerun();
             break;
     }
 
     generateWord();
-    // Will replace this with actual logic once I figure out how it works on paper 
 }
 
 let timerInterval;
 
 function pointrun() {
-    timer = 1200;
     timerInterval = setInterval(function() {
         timer--;
         document.getElementById("thresholdAmount").innerText = formatTime(timer);
@@ -46,8 +45,7 @@ function pointrun() {
 }
 
 function speedrun() {
-    timer = 0;
-    pointThresh = 2000;
+    pointThresh = skipLength;
     timerInterval = setInterval(function() {
         timer++;
         document.getElementById("scoreAmount").innerText = formatTime(timer);
@@ -66,7 +64,6 @@ function speedrun() {
 function timerun() {
     // This is going to be hard isn't it 
     pointThresh = 0;
-    timer = 0;
     let stage = 1;
     document.getElementById("point-threshold").innerText = String(pointThresh + 100 * (stage + 1));
     // If I don't make it through, c-continue m-my work p-p-please 
@@ -79,9 +76,9 @@ function timerun() {
     timerInterval = setInterval(function() {
         timer++;
         document.getElementById("scoreAmount").innerText = formatTime(timer);
-        if (timer % 300 == 0) { // Every 30 seconds 
+        if (timer % stageLength == 0) { // Every cycle seconds 
             stage++;
-            document.getElementById("timeThresh").innerText = formatTime(300 * stage);
+            document.getElementById("timeThresh").innerText = formatTime(stageLength * stage);
             pointThresh += 100 * stage;
             document.getElementById("point-threshold").innerText = String(pointThresh + 100 * (stage + 1));
             if (points < pointThresh) {

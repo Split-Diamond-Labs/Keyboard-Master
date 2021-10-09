@@ -23,6 +23,16 @@ function modeClick() {
     mode++; // Toggle mode 
     mode %= modes.length; // If the mode index overflows, this line will automatically bring it back to 0
     document.getElementById("mode").innerText = modes[mode]; // Update the button 
+    switch (mode) {
+        case 0:
+            timer = timerLength;
+            break;
+        case 1:
+            timer = skipLength;
+            break;
+        case 2:
+            timer = 0;
+    }
 }
 
 
